@@ -3,21 +3,21 @@
 <head>
   <title>Opening Layer of Art...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script>
-    window.onload = function () {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("id");
-      if (!id) return;
+ <script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const screen = params.get("screen");
 
-      const deepLink = `layerofart://ArtworkScreen/${id}`;
-      window.location.href = deepLink;
+  if (id && screen) {
+    const deeplink = `layerofart://${screen}/${id}`;
+    window.location.href = deeplink;
 
-      // Fallback
-      setTimeout(() => {
-        window.location.href = "https://layerofart.com/app-download";
-      }, 2000);
-    };
-  </script>
+    setTimeout(() => {
+      window.location.href = "https://layerofart.com/app-download";
+    }, 2000);
+  }
+</script>
+
 </head>
 <body>
   <p>Opening in the Layer of Art app...</p>
